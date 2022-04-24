@@ -1,0 +1,18 @@
+{
+    "name": "datapiperapp_client",
+    "version": "1.0.0",
+    "description": "For delivery to DataPiper",
+    "engines": {
+      "node": "15.10.0"
+    },
+    "scripts": {
+      "clean": "rm -rf public",
+      "build": "npm install --prefix client && npm run build --prefix client",
+      "deploy": "cp -a client/build/. public/",
+      "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+    },
+    "author": "CharlesLobe",
+    "dependencies": {
+      "markdown-react-js": "^1.0.2"
+    }
+  }
