@@ -12,6 +12,6 @@ class ApplicantsController < ApplicationController
       private
   
       def applicant_params
-        params.permit(:first_name, :last_name, :email, :phone, :adress, :city, :country, :zip)
+        params.permit(:first_name, :last_name, :email, :phone, :adress, :city, :country, :zip, :job)
       end
 end
