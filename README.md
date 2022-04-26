@@ -28,4 +28,5 @@ Further features of app:
 - More robust UI - integration of back links
 - Login/signup feature that allows for an admin (IE non engineer) to create or delete a job listing to/from DB
 - Allow user to input resume(PDF, doc) to DB
+- Addition of validations that throw errors to make sure of clean data
 
