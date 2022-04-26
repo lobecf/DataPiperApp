@@ -36,4 +36,3 @@ gem "pg", "~> 1.2"
 
 gem "cloudinary", "~> 1.21"
 gem "dotenv-rails", "~> 2.7"
-
