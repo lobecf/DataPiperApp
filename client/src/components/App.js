@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import { Switch, Route } from 'react-router-dom'
 import JobSearch from "./JobSearch"
 import JobDetail from "./JobDetail"
@@ -19,9 +20,9 @@ useEffect(() => {
 
 console.log(allJobs)
   return (
-    <div>
+    <Container>
       <Switch>
-        <Route exact path="/jobs">
+        <Route exact path="/">
         <JobSearch allJobs={allJobs}/>
         </Route>
         <Route
@@ -47,8 +48,12 @@ console.log(allJobs)
           }}
         />
       </Switch>
-    </div>
+    </Container>
   );
 }
 
 export default App;
+
+const Container = styled.p `
+margin-top: 40px;
+`

@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In this application
+Frontend: Javascript React
+Backend: Ruby on Rails
+DB: sqlite3
 
-Things you may want to cover:
+Features:
+Search capabilities by role of all jobs 
+Candidate information is able to be stored into database associated with a specific role
 
-* Ruby version
+To access app from terminal:
+- cd into root directory
+- rails s
+- npm start --prefix client
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

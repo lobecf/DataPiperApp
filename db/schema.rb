@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_24_222009) do
+ActiveRecord::Schema.define(version: 2022_04_25_225946) do
 
   create_table "applicants", force: :cascade do |t|
     t.string "first_name"
@@ -33,9 +33,10 @@ ActiveRecord::Schema.define(version: 2022_04_24_222009) do
     t.string "email"
     t.string "role"
     t.string "urgancy"
-    t.string "quantity"
+    t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "skills_needed"
   end
 
   add_foreign_key "applicants", "jobs"

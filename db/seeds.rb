@@ -11,7 +11,9 @@ j1 = Job.create!(
     email: 'M.RD43@datapiper.com', 
     role: 'Core Senior Software Developer - Senior Associate', 
     urgancy: 'high', 
-    quantity: 'two')
+    quantity: 2,
+    skills_needed: 'Java,Springboot Docker/Kubernetes, API/microservices/ Cloud'
+)
 
 j2 = Job.create!(
     client: 'PwC', 
@@ -19,7 +21,9 @@ j2 = Job.create!(
     email: 'DavidS_33@datapiper.com', 
     role: 'Zendesk Developer', 
     urgancy: 'high', 
-    quantity: 'one')
+    quantity: 3,
+    skills_needed: 'Zendesk Developer'
+)
 
 j3 = Job.create!(
     client: 'PwC', 
@@ -27,7 +31,9 @@ j3 = Job.create!(
     email: 'robert@datapiper.com', 
     role: 'Datavault 2.0', 
     urgancy: 'medium', 
-    quantity: 'one')
+    quantity: 1,
+    skills_needed: 'Datavault 2.0 Certified'
+)
 
 j4 = Job.create!(
     client: 'PwC', 
@@ -35,7 +41,9 @@ j4 = Job.create!(
     email: 'elizaT_cat@datapiper.com', 
     role: 'Snowflake Data Engineer', 
     urgancy: 'high', 
-    quantity: 'one')
+    quantity: 1,
+    skills_needed: 'JD'
+)
 
 a1 = Applicant.create!(
     first_name: 'Charlie', 
