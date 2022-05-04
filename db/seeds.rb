@@ -54,3 +54,23 @@ a1 = Applicant.create!(
     city: 'New York', 
     zipcode: '10011', 
     job_id: j1.id)
+
+a2 = Applicant.create!(
+    first_name: 'Erin', 
+    last_name: 'Parker', 
+    email: 'eparker@gmail.com', 
+    phone: '6513258223', 
+    address: '75 Rockefeller Center', 
+    city: 'New York', 
+    zipcode: '10011', 
+    job_id: j1.id)
+
+a3 = Applicant.create!(
+    first_name: 'Loke', 
+    last_name: 'Chan', 
+    email: 'lchan@gmail.com', 
+    phone: '6513258223', 
+    address: '220 Central Park South', 
+    city: 'New York', 
+    zipcode: '10011', 
+    job_id: j1.id)

@@ -27,7 +27,7 @@ function JobSearch ({allJobs}) {
             <Form action="/" method="get">
             <Wrapper>
             <Header htmlFor="header-search">
-            <span className="visually-hidden">Job Listings</span>
+            <span>Job Listings</span>
             </Header>
             <Input
             value={searchQuery}

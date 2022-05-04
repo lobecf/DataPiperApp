@@ -1,95 +1,88 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
+import { useHistory } from 'react-router-dom';
 
-function ApplicantForm ( {jobId} ) {
-    const [applicant, setApplicant] = useState("")
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
+function CreateListing () {
+    const [job, setJob] = useState("")
+    const [client, setClient] = useState("");
+    const [poc, setPoc] = useState("");
     const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [address, setAddress] = useState("");
-    const [city, setCity] = useState("");
-    const [state, setState] = useState("");
-    const [country, setCountry] = useState("");
-    const [zipcode, setZipcode] = useState("");
+    const [role, setRole] = useState("");
+    const [urgancy, setUrgancy] = useState("");
+    const [quantity, setQuantity] = useState("");
+    const [skillsNeeded, setSkillsNeeded] = useState("");
     const [errors, setErrors] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [job, setJob] = useState(null)
     const history = useHistory();
 
     function handleSubmit(e) {
-        e.preventDefault();
+      e.preventDefault();
         setErrors([]);
         setIsLoading(true);
-        fetch("/applicants", {
+        fetch("/jobs", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            first_name: firstName,
-            last_name: lastName,
+            client,
+            poc,
             email,
-            phone,
-            address,
-            city,
-            state,
-            country,
-            zipcode,
-            job_id: jobId,
+            role,
+            urgancy,
+            quantity,
+            skills_needed: skillsNeeded,
           }),
         }).then(res => {
-            if (res.ok) {
-              return res.json()
-            } else {
-              return res.json().then(errors => Promise.reject(errors))
-            }
-          })
-          .then(applicant => setApplicant(applicant));
-          
-          history.push(`/jobs/${job.id}`)
+          if (res.ok) {
+            return res.json()
+          } else {
+            return res.json().then(errors => Promise.reject(errors))
+          }
+        })
+        .then(job => setJob(job));
+        
+        history.push("/")
       }
-  
+
       const fetchEventCallback = useCallback(
         () => {
-          fetch(`/jobs/${jobId}`, {
+          fetch(`/jobs/${job.Id}`, {
             credentials: 'include'
           })
             .then(res => res.json())
             .then(job => setJob(job))
         },
-        [jobId],
+        [job.Id],
       )
     
       useEffect(() => {
         fetchEventCallback()
       }, [fetchEventCallback])
-  
-      console.log(job)
-  
+
       if(!job) { return <div></div>}
     return (
         <Wrapper2>
-            <H3>{job.role}</H3>
+            <H3>Create Listing</H3>
             <Wrapper>
             <Form onSubmit={handleSubmit}>
                 <P>
                 <Input
                 type="text"
-                id="first-name"
-                placeholder="First Name"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                id="client"
+                placeholder="Client"
+                value={client}
+                onChange={(e) => setClient(e.target.value)}
                 />
                 </P>
                 <P>
                 <Input
                 type="text"
-                id="last-name"
-                placeholder="Last Name"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                id="poc"
+                placeholder="POC"
+                value={poc}
+                onChange={(e) => setPoc(e.target.value)}
                 />
                 </P>
                 <P>
@@ -104,55 +97,37 @@ function ApplicantForm ( {jobId} ) {
                 <P>
                 <Input
                 type="text"
-                id="phone"
-                placeholder="Phone"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                id="role"
+                placeholder="Role Name"
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
                 />
                 </P>
                 <P>
                 <Input
                 type="text"
-                id="address"
-                placeholder="Street Address"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
+                id="urgancy"
+                placeholder="Urgency"
+                value={urgancy}
+                onChange={(e) => setUrgancy(e.target.value)}
+                />
+                </P>
+                <P>
+                <Input
+                type="number"
+                id="quantity"
+                placeholder="Quantity"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
                 />
                 </P>
                 <P>
                 <Input
                 type="text"
-                id="city"
-                placeholder="City"
-                value={city}
-                onChange={(e) => setCity(e.target.value)}
-                />
-                </P>
-                <P>
-                <Input
-                type="text"
-                id="state"
-                placeholder="State"
-                value={state}
-                onChange={(e) => setState(e.target.value)}
-                />
-                </P>
-                <P>
-                <Input
-                type="text"
-                id="country"
-                placeholder="Country"
-                value={country}
-                onChange={(e) => setCountry(e.target.value)}
-                />
-                </P>
-                <P>
-                <Input
-                type="text"
-                id="zipcode"
-                placeholder="Zip Code"
-                value={zipcode}
-                onChange={(e) => setZipcode(e.target.value)}
+                id="skills"
+                placeholder="Skills Needed"
+                value={skillsNeeded}
+                onChange={(e) => setSkillsNeeded(e.target.value)}
                 />
                 </P>
                 <SubmitButton type="submit">{isLoading ? "Loading..." : "Submit"}</SubmitButton>
@@ -167,7 +142,7 @@ function ApplicantForm ( {jobId} ) {
     )
 }
 
-export default ApplicantForm
+export default CreateListing
 
 const Form = styled.form`
   margin-bottom: 3px;
