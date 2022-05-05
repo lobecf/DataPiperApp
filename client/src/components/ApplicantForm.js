@@ -48,7 +48,7 @@ function ApplicantForm ( {jobId} ) {
           })
           .then(applicant => setApplicant(applicant));
           
-          history.push(`/jobs/${job.id}`)
+          history.push(`/jobs/${jobId}`)
       }
   
       const fetchEventCallback = useCallback(
