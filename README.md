@@ -22,11 +22,15 @@ My approach:
     - Store existing job/role database (data is currently seeded)
     - Allow user to READ existing job/role
     - Creation of search input by role
-    - Allow user to input his/her/their credentials for particular role
+    - Allow user to input applicant credentials for particular role
 
-Further features of app:
-- More robust UI - integration of back links
-- Login/signup feature that allows for an admin (IE non engineer) to create or delete a job listing to/from DB
-- Allow user to input resume(PDF, doc) to DB
+Bonus features:
+- CREATE feature for job listing
+- READ applicant detail feature
+
+Stretch goals
+- UPDATE/DESTROY features for Jobs/Applicants
+- Login/signup feature for employees with encrypted data
+- Allow user to upload resume(PDF, doc) to DB
 - Addition of validations that throw errors to make sure of clean data
 
